@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableViewController">
             <connections>
+                <outlet property="buttonSearch" destination="hq0-Y2-eWG" id="Ywt-yc-5a3"/>
                 <outlet property="tableview" destination="z24-IP-C1d" id="fiF-7d-ri3"/>
                 <outlet property="txtSearch" destination="nBI-F1-SYc" id="QMy-RG-tqf"/>
                 <outlet property="view" destination="BH5-WO-gfD" id="nRK-NB-keP"/>
@@ -17,16 +18,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nBI-F1-SYc">
-                    <rect key="frame" x="8" y="25" width="521" height="30"/>
+                    <rect key="frame" x="8" y="25" width="501" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hq0-Y2-eWG">
-                    <rect key="frame" x="537" y="25" width="55" height="30"/>
+                    <rect key="frame" x="517" y="25" width="75" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="55" id="Prc-tr-OUi"/>
+                        <constraint firstAttribute="width" constant="75" id="Prc-tr-OUi"/>
                     </constraints>
-                    <state key="normal" title="Search">
+                    <state key="normal" title="Buscar">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

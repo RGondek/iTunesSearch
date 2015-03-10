@@ -19,7 +19,7 @@
 
 @implementation TableViewController
 
-@synthesize txtSearch, tableview, strSearch;
+@synthesize txtSearch, tableview, strSearch, buttonSearch;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +29,19 @@
     
     strSearch = @"Apple";
     [self search];
+    
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    if ([language isEqualToString:@"en"]) {
+        [buttonSearch setTitle:@"Search" forState:UIControlStateNormal];
+    }
+    else if([language isEqualToString:@"pt"]){
+        [buttonSearch setTitle:@"Buscar" forState:UIControlStateNormal];
+    }
+    else if([language isEqualToString:@"fr"]){
+        [buttonSearch setTitle:@"Recherche" forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +79,7 @@
 - (IBAction)btnSearch:(id)sender {
     strSearch = txtSearch.text;
     strSearch = [strSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    [txtSearch resignFirstResponder];
     [self search];
 }
 

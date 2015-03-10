@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *txtSearch;
 @property NSString *strSearch;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSearch;
 
 - (IBAction)btnSearch:(id)sender;
 - (void)search;
