@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nome;
 @property (weak, nonatomic) IBOutlet UILabel *tipo;
+@property (weak, nonatomic) IBOutlet UILabel *genre;
+@property (weak, nonatomic) IBOutlet UILabel *duration;
 
 
 @end
