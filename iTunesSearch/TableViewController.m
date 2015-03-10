@@ -19,7 +19,7 @@
 
 @implementation TableViewController
 
-
+@synthesize txtSearch, tableview, strSearch;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,11 +27,8 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    iTunesManager *itunes = [iTunesManager sharedInstance];
-    midias = [itunes buscarMidias:@"Apple"];
-    
-#warning Necessario para que a table view tenha um espaco em relacao ao topo, pois caso contrario o texto ficara atras da barra superior
-    self.tableview.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableview.bounds.size.width, 15.f)];
+    strSearch = @"Apple";
+    [self search];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,5 +63,16 @@
     return 70;
 }
 
+- (IBAction)btnSearch:(id)sender {
+    strSearch = txtSearch.text;
+    strSearch = [strSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    [self search];
+}
+
+- (void)search{
+    iTunesManager *itunes = [iTunesManager sharedInstance];
+    midias = [itunes buscarMidias:strSearch];
+    [tableview reloadData];
+}
 
 @end
