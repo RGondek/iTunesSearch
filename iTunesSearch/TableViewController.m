@@ -10,9 +10,13 @@
 #import "TableViewCell.h"
 #import "iTunesManager.h"
 #import "Entidades/Filme.h"
+#import "Music.h"
+#import "Podcast.h"
+#import "Ebook.h"
 
 @interface TableViewController () {
     NSArray *midias;
+    NSArray *media;
 }
 
 @end
@@ -52,22 +56,63 @@
 
 #pragma mark - Metodos do UITableViewDataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [midias count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [midias count];
+    return [[midias objectAtIndex:section] count];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case 0: return @"Filmes";
+        case 1: return @"Musicas";
+        case 2: return @"Podcasts";
+        case 3: return @"Ebooks";
+    }
+    
+    return @"Deu RUIM!";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *celula = [self.tableview dequeueReusableCellWithIdentifier:@"celulaPadrao"];
     
-    Filme *filme = [midias objectAtIndex:indexPath.row];
+    media = [[NSArray alloc] initWithArray:[midias objectAtIndex:indexPath.section]];
     
-    [celula.nome setText:filme.nome];
-    [celula.tipo setText:@"Filme"];
-    [celula.genre setText:filme.genero];
+    Filme *filme;
+    Music *music;
+    Ebook *ebook;
+    Podcast *pod;
     
+    long row = [indexPath row];
+    
+    switch (indexPath.section) {
+        case 0:
+            filme = [media objectAtIndex:row];
+            [celula.nome setText:filme.nome];
+            [celula.tipo setText:@"Filme"];
+            [celula.genre setText:filme.genero];
+            break;
+        case 1:
+            music = [media objectAtIndex:row];
+            [celula.nome setText:music.nome];
+            [celula.tipo setText:@"Musica"];
+            [celula.genre setText:music.genero];
+            break;
+        case 2:
+            pod = [media objectAtIndex:row];
+            [celula.nome setText:pod.nome];
+            [celula.tipo setText:@"Podcast"];
+            [celula.genre setText:pod.genero];
+            break;
+        case 3:
+            ebook = [media objectAtIndex:row];
+            [celula.nome setText:ebook.nome];
+            [celula.tipo setText:@"Ebook"];
+            break;
+        default:
+            break;
+    }
     
     return celula;
 }

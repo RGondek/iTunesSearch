@@ -8,6 +8,9 @@
 
 #import "iTunesManager.h"
 #import "Entidades/Filme.h"
+#import "Music.h"
+#import "Ebook.h"
+#import "Podcast.h"
 
 @implementation iTunesManager
 
@@ -34,7 +37,7 @@ static bool isFirstAccess = YES;
         termo = @"";
     }
     
-    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&media=movie", termo];
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=200", termo];
     NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
     
     NSError *error;
@@ -48,22 +51,55 @@ static bool isFirstAccess = YES;
     
     NSArray *resultados = [resultado objectForKey:@"results"];
     NSMutableArray *filmes = [[NSMutableArray alloc] init];
+    NSMutableArray *musics = [[NSMutableArray alloc] init];
+    NSMutableArray *ebooks = [[NSMutableArray alloc] init];
+    NSMutableArray *podcasts = [[NSMutableArray alloc] init];
+    
+    NSString *tipo;
     
     for (NSDictionary *item in resultados) {
-        Filme *filme = [[Filme alloc] init];
-        [filme setNome:[item objectForKey:@"trackName"]];
-        [filme setTrackId:[item objectForKey:@"trackId"]];
-        [filme setArtista:[item objectForKey:@"artistName"]];
-        [filme setDuracao:[item objectForKey:@"trackTimeMillis"]];
-        [filme setGenero:[item objectForKey:@"primaryGenreName"]];
-        [filme setPais:[item objectForKey:@"country"]];
-        [filmes addObject:filme];
+        tipo = [item objectForKey:@"kind"];
+        if ([tipo isEqualToString:@"feature-movie"]) {
+            Filme *filme = [[Filme alloc] init];
+            [filme setNome:[item objectForKey:@"trackName"]];
+            [filme setTrackId:[item objectForKey:@"trackId"]];
+            [filme setArtista:[item objectForKey:@"artistName"]];
+            [filme setDuracao:[item objectForKey:@"trackTimeMillis"]];
+            [filme setGenero:[item objectForKey:@"primaryGenreName"]];
+            [filme setPais:[item objectForKey:@"country"]];
+            [filmes addObject:filme];
+        }
+        else if ([tipo isEqualToString:@"song"]){
+            Music *music = [[Music alloc] init];
+            [music setNome:[item objectForKey:@"trackName"]];
+            [music setTrackId:[item objectForKey:@"trackId"]];
+            [music setArtista:[item objectForKey:@"artistName"]];
+            [music setDuracao:[item objectForKey:@"trackTimeMillis"]];
+            [music setGenero:[item objectForKey:@"primaryGenreName"]];
+            [music setPais:[item objectForKey:@"country"]];
+            [musics addObject:music];
+        }
+        else if ([tipo isEqualToString:@"ebook"]){
+            Ebook *ebook = [[Ebook alloc] init];
+            [ebook setNome:[item objectForKey:@"trackName"]];
+            [ebook setTrackId:[item objectForKey:@"trackId"]];
+            [ebook setArtista:[item objectForKey:@"artistName"]];
+            [ebooks addObject:ebook];
+        }
+        else if ([tipo isEqualToString:@"podcast"]){
+            Podcast *pod = [[Podcast alloc] init];
+            [pod setNome:[item objectForKey:@"trackName"]];
+            [pod setTrackId:[item objectForKey:@"trackId"]];
+            [pod setGenero:[item objectForKey:@"primaryGenreName"]];
+            [pod setPais:[item objectForKey:@"country"]];
+            [podcasts addObject:pod];
+        }
     }
     
-    return filmes;
+    NSArray *media = [[NSArray alloc] initWithObjects:filmes, musics, podcasts, ebooks, nil];
+    
+    return media;
 }
-
-
 
 
 #pragma mark - Life Cycle
