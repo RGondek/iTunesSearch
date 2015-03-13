@@ -20,15 +20,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R6m-eZ-3Ps">
-                    <rect key="frame" x="36" y="145" width="300" height="300"/>
+                    <rect key="frame" x="49" y="145.5" width="275" height="275"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="275" id="Nq9-Hp-Ajk"/>
+                        <constraint firstAttribute="width" secondItem="R6m-eZ-3Ps" secondAttribute="height" multiplier="1:1" id="RJx-eS-Zlp"/>
+                        <constraint firstAttribute="width" constant="275" id="T8h-IC-19W"/>
                         <constraint firstAttribute="width" constant="300" id="VkS-T4-3bQ"/>
                         <constraint firstAttribute="width" secondItem="R6m-eZ-3Ps" secondAttribute="height" multiplier="145:96" id="aoc-3D-jQG"/>
                         <constraint firstAttribute="height" constant="300" id="dPt-xo-aZi"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="RJx-eS-Zlp"/>
+                            <exclude reference="VkS-T4-3bQ"/>
                             <exclude reference="aoc-3D-jQG"/>
+                            <exclude reference="dPt-xo-aZi"/>
                         </mask>
                     </variation>
                 </imageView>
@@ -53,17 +59,20 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="R6m-eZ-3Ps" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="2GF-Yg-mPP"/>
+                <constraint firstItem="R6m-eZ-3Ps" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="6QF-Zt-d4a"/>
                 <constraint firstItem="R6m-eZ-3Ps" firstAttribute="top" secondItem="WSS-me-DfQ" secondAttribute="bottom" constant="15" id="A0C-Df-luQ"/>
                 <constraint firstItem="WSS-me-DfQ" firstAttribute="top" secondItem="OIC-YY-EE8" secondAttribute="bottom" constant="5" id="EcP-yo-7qm"/>
                 <constraint firstAttribute="centerX" secondItem="R6m-eZ-3Ps" secondAttribute="centerX" id="GX5-Jg-rik"/>
                 <constraint firstAttribute="bottom" secondItem="RPf-RM-e2H" secondAttribute="bottom" constant="30" id="JpT-mk-07j"/>
                 <constraint firstAttribute="trailing" secondItem="RPf-RM-e2H" secondAttribute="trailing" id="RAX-Ux-VCh"/>
                 <constraint firstItem="OIC-YY-EE8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="RjR-qS-l3x"/>
+                <constraint firstAttribute="trailing" secondItem="R6m-eZ-3Ps" secondAttribute="trailing" constant="30" id="egf-NU-KNT"/>
                 <constraint firstAttribute="trailing" secondItem="WSS-me-DfQ" secondAttribute="trailing" id="emc-5f-Zpc"/>
                 <constraint firstAttribute="trailing" secondItem="R6m-eZ-3Ps" secondAttribute="trailing" constant="10" id="fy6-Ji-4fp"/>
                 <constraint firstItem="OIC-YY-EE8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="hNg-lb-01E"/>
                 <constraint firstItem="R6m-eZ-3Ps" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="kiG-ak-kIK"/>
-                <constraint firstItem="RPf-RM-e2H" firstAttribute="top" secondItem="R6m-eZ-3Ps" secondAttribute="bottom" priority="250" constant="75" id="l9W-0f-tMD"/>
+                <constraint firstItem="RPf-RM-e2H" firstAttribute="top" secondItem="R6m-eZ-3Ps" secondAttribute="bottom" priority="250" constant="50" id="l9W-0f-tMD"/>
                 <constraint firstAttribute="centerX" secondItem="R6m-eZ-3Ps" secondAttribute="centerX" id="lRH-xH-BYm"/>
                 <constraint firstItem="WSS-me-DfQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="q5m-Ux-N02"/>
                 <constraint firstAttribute="trailing" secondItem="OIC-YY-EE8" secondAttribute="trailing" constant="10" id="uZo-UZ-6tk"/>
@@ -71,6 +80,9 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="2GF-Yg-mPP"/>
+                    <exclude reference="6QF-Zt-d4a"/>
+                    <exclude reference="egf-NU-KNT"/>
                     <exclude reference="fy6-Ji-4fp"/>
                     <exclude reference="kiG-ak-kIK"/>
                     <exclude reference="lRH-xH-BYm"/>
