@@ -17,6 +17,7 @@
 
 @interface TableViewController () {
     NSArray *media;
+    NSUserDefaults *user;
 }
 
 @end
@@ -33,20 +34,11 @@
     
     self.navigationItem.title = @"iTunes";
     
-    strSearch = @"SpongeBob";
+    user = [NSUserDefaults standardUserDefaults];
+    [user synchronize];
+    
+    strSearch = [user valueForKey:@"Init"];
     [self search];
-    
-    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    
-    if ([language isEqualToString:@"en"]) {
-        [buttonSearch setTitle:@"Search" forState:UIControlStateNormal];
-    }
-    else if([language isEqualToString:@"pt"]){
-        [buttonSearch setTitle:@"Buscar" forState:UIControlStateNormal];
-    }
-    else if([language isEqualToString:@"fr"]){
-        [buttonSearch setTitle:@"Recherche" forState:UIControlStateNormal];
-    }
     
 }
 
@@ -65,15 +57,37 @@
     return [[midias objectAtIndex:section] count];
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    switch (section) {
-        case 0: return @"Filmes";
-        case 1: return @"Musicas";
-        case 2: return @"Podcasts";
-        case 3: return @"Ebooks";
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableview.frame.size.width, 60)];
+    [header setBackgroundColor:[UIColor redColor]];
+    UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 100, 20)];
+    [lblTitle setTintColor:[UIColor whiteColor]];
+    UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 20, 20)];
+    [header addSubview:img];
+    [header addSubview:lblTitle];
+    if (section == 0) {
+        [img setImage:[UIImage imageNamed:@"movie"]];
+        [lblTitle setText:@"Filmes"];
+        [header setBackgroundColor:[UIColor colorWithRed:1 green:0.5 blue:0.5 alpha:1]];
+
+    }
+    else if (section == 1) {
+        [img setImage:[UIImage imageNamed:@"music"]];
+        [lblTitle setText:@"Músicas"];
+        [header setBackgroundColor:[UIColor colorWithRed:0.5 green:1 blue:0.5 alpha:1]];
+    }
+    else if (section == 2) {
+        [img setImage:[UIImage imageNamed:@"podcast"]];
+        [lblTitle setText:@"Podcasts"];
+        [header setBackgroundColor:[UIColor colorWithRed:0.9 green:0.5 blue:0.9 alpha:1]];
+    }
+    else if (section == 3) {
+        [img setImage:[UIImage imageNamed:@"ebooks"]];
+        [lblTitle setText:@"Ebooks"];
+        [header setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:1 alpha:1]];
     }
     
-    return @"Deu RUIM!";
+    return header;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,7 +106,7 @@
         case 0:
             filme = [media objectAtIndex:row];
             [celula.nome setText:filme.nome];
-            //[celula.price setText:(NSString*)music.price];
+            [celula.price setText:[NSString stringWithFormat:@"Price U$ %@", filme.price]];
             [celula.artista setText:filme.artista];
             [celula.genre setText:filme.genero];
             [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:filme.img]]]];
@@ -100,7 +114,7 @@
         case 1:
             music = [media objectAtIndex:row];
             [celula.nome setText:music.nome];
-            //[celula.price setText:(NSString*)music.price];
+            [celula.price setText:[NSString stringWithFormat:@"Price U$ %@", music.price]];
             [celula.artista setText:music.artista];
             [celula.genre setText:music.genero];
             [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:music.img]]]];
@@ -108,15 +122,15 @@
         case 2:
             pod = [media objectAtIndex:row];
             [celula.nome setText:pod.nome];
-            [celula.price setText:@"Podcast"];
+            [celula.price setText:[NSString stringWithFormat:@"Price U$ %@", pod.price]];
             [celula.artista setText:pod.pais];
             [celula.genre setText:pod.genero];
-            //[celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:pod.img]]]];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:pod.img]]]];
             break;
         case 3:
             ebook = [media objectAtIndex:row];
             [celula.nome setText:ebook.nome];
-            [celula.price setText:@"Ebook"];
+            [celula.price setText:[NSString stringWithFormat:@"Price U$ %@", ebook.price]];
             [celula.artista setText:ebook.artista];
             [celula.genre setText:@"Livro"];
             [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ebook.img]]]];
@@ -144,6 +158,8 @@
     strSearch = txtSearch.text;
     strSearch = [strSearch stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     [txtSearch resignFirstResponder];
+    [user setObject:strSearch forKey:@"Init"];
+    [user synchronize];
     [self search];
 }
 

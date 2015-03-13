@@ -68,7 +68,7 @@ static bool isFirstAccess = YES;
             [filme setGenero:[item objectForKey:@"primaryGenreName"]];
             [filme setPais:[item objectForKey:@"country"]];
             [filme setImg:[item objectForKey:@"artworkUrl100"]];
-            //[filme setPrice:[item objectForKey:@"trackPrice"]];
+            [filme setPrice:[item objectForKey:@"trackPrice"]];
             [filmes addObject:filme];
             
         }
@@ -81,7 +81,7 @@ static bool isFirstAccess = YES;
             [music setDuracao:[item objectForKey:@"trackTimeMillis"]];
             [music setGenero:[item objectForKey:@"primaryGenreName"]];
             [music setPais:[item objectForKey:@"country"]];
-            //[music setPrice:[item objectForKey:@"trackPrice"]];
+            [music setPrice:[item objectForKey:@"trackPrice"]];
             [musics addObject:music];
         }
         else if ([tipo isEqualToString:@"ebook"]){
@@ -90,7 +90,7 @@ static bool isFirstAccess = YES;
             [ebook setTrackId:[item objectForKey:@"trackId"]];
             [ebook setArtista:[item objectForKey:@"artistName"]];
             [ebook setImg:[item objectForKey:@"artworkUrl100"]];
-            //[ebook setPrice:[item objectForKey:@"trackPrice"]];
+            [ebook setPrice:[item objectForKey:@"price"]];
             [ebooks addObject:ebook];
         }
         else if ([tipo isEqualToString:@"podcast"]){
@@ -99,8 +99,8 @@ static bool isFirstAccess = YES;
             [pod setTrackId:[item objectForKey:@"trackId"]];
             [pod setGenero:[item objectForKey:@"primaryGenreName"]];
             [pod setPais:[item objectForKey:@"country"]];
-            //[pod setImg:[item objectForKey:@"artworkUrl100"]];
-            //[pod setPrice:[item objectForKey:@"trackPrice"]];
+            [pod setImg:[item objectForKey:@"artworkUrl100"]];
+            [pod setPrice:[item objectForKey:@"trackPrice"]];
             [podcasts addObject:pod];
         }
     }
