@@ -20,9 +20,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R6m-eZ-3Ps">
-                    <rect key="frame" x="10" y="145.5" width="580" height="328.5"/>
+                    <rect key="frame" x="150" y="145.5" width="300" height="300"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="300" id="VkS-T4-3bQ"/>
                         <constraint firstAttribute="width" secondItem="R6m-eZ-3Ps" secondAttribute="height" multiplier="145:96" id="aoc-3D-jQG"/>
+                        <constraint firstAttribute="height" constant="300" id="dPt-xo-aZi"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -53,6 +55,7 @@
             <constraints>
                 <constraint firstItem="R6m-eZ-3Ps" firstAttribute="top" secondItem="WSS-me-DfQ" secondAttribute="bottom" constant="15" id="A0C-Df-luQ"/>
                 <constraint firstItem="WSS-me-DfQ" firstAttribute="top" secondItem="OIC-YY-EE8" secondAttribute="bottom" constant="5" id="EcP-yo-7qm"/>
+                <constraint firstAttribute="centerX" secondItem="R6m-eZ-3Ps" secondAttribute="centerX" id="GX5-Jg-rik"/>
                 <constraint firstAttribute="bottom" secondItem="RPf-RM-e2H" secondAttribute="bottom" constant="30" id="JpT-mk-07j"/>
                 <constraint firstAttribute="trailing" secondItem="RPf-RM-e2H" secondAttribute="trailing" id="RAX-Ux-VCh"/>
                 <constraint firstItem="OIC-YY-EE8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="RjR-qS-l3x"/>
@@ -68,6 +71,8 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="fy6-Ji-4fp"/>
+                    <exclude reference="kiG-ak-kIK"/>
                     <exclude reference="lRH-xH-BYm"/>
                 </mask>
             </variation>

@@ -42,7 +42,7 @@
         Music *m = obj;
         [lblTitle setText:m.nome];
         [lblArt setText:m.artista];
-        //[imgCapa setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:m.imagem]]]];
+        [imgCapa setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:m.img]]]];
         //[lblPrice setText:m.preco];
     }
     else if ([obj isMemberOfClass:[Filme class]]) {

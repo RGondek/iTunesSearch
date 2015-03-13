@@ -13,13 +13,13 @@
 		92C21CC11AAE757A0052ABE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CC01AAE757A0052ABE6 /* Images.xcassets */; };
 		92C21CD01AAE757A0052ABE6 /* iTunesSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CCF1AAE757A0052ABE6 /* iTunesSearchTests.m */; };
 		92C21CDB1AAE75B30052ABE6 /* iTunesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CDA1AAE75B30052ABE6 /* iTunesManager.m */; };
-		92C21CDD1AAE75DC0052ABE6 /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CDC1AAE75DC0052ABE6 /* TableView.xib */; };
 		92C21CE11AAE76930052ABE6 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CDF1AAE76930052ABE6 /* TableViewCell.m */; };
 		92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92C21CE01AAE76930052ABE6 /* TableViewCell.xib */; };
 		92C21CE81AAE858E0052ABE6 /* Filme.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21CE71AAE858E0052ABE6 /* Filme.m */; };
 		D515C15C1AB0842600309310 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D515C15B1AB0842600309310 /* Music.m */; };
 		D515C15F1AB0843700309310 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D515C15E1AB0843700309310 /* Podcast.m */; };
 		D515C1621AB0844800309310 /* Ebook.m in Sources */ = {isa = PBXBuildFile; fileRef = D515C1611AB0844800309310 /* Ebook.m */; };
+		D57260A21AB33C7A00C35272 /* TableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D57260A41AB33C7A00C35272 /* TableView.xib */; };
 		D57E2B201AB0D0D500DE79AE /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E2B1E1AB0D0D500DE79AE /* DetailsViewController.m */; };
 		D57E2B211AB0D0D500DE79AE /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D57E2B1F1AB0D0D500DE79AE /* DetailsViewController.xib */; };
 /* End PBXBuildFile section */
@@ -48,7 +48,6 @@
 		92C21CCF1AAE757A0052ABE6 /* iTunesSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesSearchTests.m; sourceTree = "<group>"; };
 		92C21CD91AAE75B30052ABE6 /* iTunesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesManager.h; sourceTree = "<group>"; };
 		92C21CDA1AAE75B30052ABE6 /* iTunesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesManager.m; sourceTree = "<group>"; };
-		92C21CDC1AAE75DC0052ABE6 /* TableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableView.xib; sourceTree = "<group>"; };
 		92C21CDE1AAE76930052ABE6 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		92C21CDF1AAE76930052ABE6 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		92C21CE01AAE76930052ABE6 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -60,6 +59,10 @@
 		D515C15E1AB0843700309310 /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
 		D515C1601AB0844800309310 /* Ebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ebook.h; sourceTree = "<group>"; };
 		D515C1611AB0844800309310 /* Ebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ebook.m; sourceTree = "<group>"; };
+		D57260A31AB33C7A00C35272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TableView.xib; sourceTree = "<group>"; };
+		D57260A51AB33C9000C35272 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TableView.strings; sourceTree = "<group>"; };
+		D57260A61AB33C9600C35272 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TableView.strings; sourceTree = "<group>"; };
+		D57260A81AB33CC100C35272 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TableView.strings; sourceTree = "<group>"; };
 		D57E2B1D1AB0D0D500DE79AE /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		D57E2B1E1AB0D0D500DE79AE /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		D57E2B1F1AB0D0D500DE79AE /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
@@ -111,7 +114,7 @@
 				92C21CB81AAE757A0052ABE6 /* AppDelegate.m */,
 				92C21CBA1AAE757A0052ABE6 /* TableViewController.h */,
 				92C21CBB1AAE757A0052ABE6 /* TableViewController.m */,
-				92C21CDC1AAE75DC0052ABE6 /* TableView.xib */,
+				D57260A41AB33C7A00C35272 /* TableView.xib */,
 				92C21CD91AAE75B30052ABE6 /* iTunesManager.h */,
 				92C21CDA1AAE75B30052ABE6 /* iTunesManager.m */,
 				92C21CC01AAE757A0052ABE6 /* Images.xcassets */,
@@ -263,7 +266,7 @@
 			files = (
 				92C21CC11AAE757A0052ABE6 /* Images.xcassets in Resources */,
 				92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */,
-				92C21CDD1AAE75DC0052ABE6 /* TableView.xib in Resources */,
+				D57260A21AB33C7A00C35272 /* TableView.xib in Resources */,
 				D57E2B211AB0D0D500DE79AE /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +315,20 @@
 			targetProxy = 92C21CCA1AAE757A0052ABE6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D57260A41AB33C7A00C35272 /* TableView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D57260A31AB33C7A00C35272 /* Base */,
+				D57260A51AB33C9000C35272 /* fr */,
+				D57260A61AB33C9600C35272 /* pt */,
+				D57260A81AB33CC100C35272 /* en */,
+			);
+			name = TableView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		92C21CD11AAE757A0052ABE6 /* Debug */ = {

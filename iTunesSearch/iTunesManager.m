@@ -74,13 +74,13 @@ static bool isFirstAccess = YES;
         }
         else if ([tipo isEqualToString:@"song"]){
             Music *music = [[Music alloc] init];
+            [music setImg:[item objectForKey:@"artworkUrl100"]];
             [music setNome:[item objectForKey:@"trackName"]];
             [music setTrackId:[item objectForKey:@"trackId"]];
             [music setArtista:[item objectForKey:@"artistName"]];
             [music setDuracao:[item objectForKey:@"trackTimeMillis"]];
             [music setGenero:[item objectForKey:@"primaryGenreName"]];
             [music setPais:[item objectForKey:@"country"]];
-            //[music setPreview:[item objectForKey:@"previewUrl"]];
             //[music setPrice:[item objectForKey:@"trackPrice"]];
             [musics addObject:music];
         }

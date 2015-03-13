@@ -103,7 +103,7 @@
             //[celula.price setText:(NSString*)music.price];
             [celula.artista setText:music.artista];
             [celula.genre setText:music.genero];
-            //[celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:music.imagem]]]];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:music.img]]]];
             break;
         case 2:
             pod = [media objectAtIndex:row];
