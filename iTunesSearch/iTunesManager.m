@@ -37,7 +37,7 @@ static bool isFirstAccess = YES;
         termo = @"";
     }
     
-    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=200", termo];
+    NSString *url = [NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@", termo];
     NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
     
     NSError *error;
@@ -67,7 +67,10 @@ static bool isFirstAccess = YES;
             [filme setDuracao:[item objectForKey:@"trackTimeMillis"]];
             [filme setGenero:[item objectForKey:@"primaryGenreName"]];
             [filme setPais:[item objectForKey:@"country"]];
+            [filme setImg:[item objectForKey:@"artworkUrl100"]];
+            //[filme setPrice:[item objectForKey:@"trackPrice"]];
             [filmes addObject:filme];
+            
         }
         else if ([tipo isEqualToString:@"song"]){
             Music *music = [[Music alloc] init];
@@ -77,6 +80,8 @@ static bool isFirstAccess = YES;
             [music setDuracao:[item objectForKey:@"trackTimeMillis"]];
             [music setGenero:[item objectForKey:@"primaryGenreName"]];
             [music setPais:[item objectForKey:@"country"]];
+            //[music setPreview:[item objectForKey:@"previewUrl"]];
+            //[music setPrice:[item objectForKey:@"trackPrice"]];
             [musics addObject:music];
         }
         else if ([tipo isEqualToString:@"ebook"]){
@@ -84,6 +89,8 @@ static bool isFirstAccess = YES;
             [ebook setNome:[item objectForKey:@"trackName"]];
             [ebook setTrackId:[item objectForKey:@"trackId"]];
             [ebook setArtista:[item objectForKey:@"artistName"]];
+            [ebook setImg:[item objectForKey:@"artworkUrl100"]];
+            //[ebook setPrice:[item objectForKey:@"trackPrice"]];
             [ebooks addObject:ebook];
         }
         else if ([tipo isEqualToString:@"podcast"]){
@@ -92,13 +99,15 @@ static bool isFirstAccess = YES;
             [pod setTrackId:[item objectForKey:@"trackId"]];
             [pod setGenero:[item objectForKey:@"primaryGenreName"]];
             [pod setPais:[item objectForKey:@"country"]];
+            //[pod setImg:[item objectForKey:@"artworkUrl100"]];
+            //[pod setPrice:[item objectForKey:@"trackPrice"]];
             [podcasts addObject:pod];
         }
     }
     
-    NSArray *media = [[NSArray alloc] initWithObjects:filmes, musics, podcasts, ebooks, nil];
+    _midias = [[NSArray alloc] initWithObjects:filmes, musics, podcasts, ebooks, nil];
     
-    return media;
+    return _midias;
 }
 
 

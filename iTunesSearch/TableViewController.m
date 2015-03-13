@@ -13,9 +13,9 @@
 #import "Music.h"
 #import "Podcast.h"
 #import "Ebook.h"
+#import "DetailsViewController.h"
 
 @interface TableViewController () {
-    NSArray *midias;
     NSArray *media;
 }
 
@@ -23,7 +23,7 @@
 
 @implementation TableViewController
 
-@synthesize txtSearch, tableview, strSearch, buttonSearch;
+@synthesize txtSearch, tableview, strSearch, buttonSearch, midias;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +31,9 @@
     UINib *nib = [UINib nibWithNibName:@"TableViewCell" bundle:nil];
     [self.tableview registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
-    strSearch = @"Apple";
+    self.navigationItem.title = @"iTunes";
+    
+    strSearch = @"SpongeBob";
     [self search];
     
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
@@ -90,25 +92,34 @@
         case 0:
             filme = [media objectAtIndex:row];
             [celula.nome setText:filme.nome];
-            [celula.tipo setText:@"Filme"];
+            //[celula.price setText:(NSString*)music.price];
+            [celula.artista setText:filme.artista];
             [celula.genre setText:filme.genero];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:filme.img]]]];
             break;
         case 1:
             music = [media objectAtIndex:row];
             [celula.nome setText:music.nome];
-            [celula.tipo setText:@"Musica"];
+            //[celula.price setText:(NSString*)music.price];
+            [celula.artista setText:music.artista];
             [celula.genre setText:music.genero];
+            //[celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:music.imagem]]]];
             break;
         case 2:
             pod = [media objectAtIndex:row];
             [celula.nome setText:pod.nome];
-            [celula.tipo setText:@"Podcast"];
+            [celula.price setText:@"Podcast"];
+            [celula.artista setText:pod.pais];
             [celula.genre setText:pod.genero];
+            //[celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:pod.img]]]];
             break;
         case 3:
             ebook = [media objectAtIndex:row];
             [celula.nome setText:ebook.nome];
-            [celula.tipo setText:@"Ebook"];
+            [celula.price setText:@"Ebook"];
+            [celula.artista setText:ebook.artista];
+            [celula.genre setText:@"Livro"];
+            [celula.img setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ebook.img]]]];
             break;
         default:
             break;
@@ -116,6 +127,14 @@
     
     return celula;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailsViewController *dVC = [[DetailsViewController alloc] init];
+    dVC.iRow = [indexPath row];
+    dVC.iSection = [indexPath section];
+    [self.navigationController pushViewController:dVC animated:YES];
+}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;

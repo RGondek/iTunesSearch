@@ -14,7 +14,10 @@
 @property (strong, nonatomic) IBOutlet UIView *view;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtSearch;
+
 @property NSString *strSearch;
+@property NSArray *midias;
+
 @property (weak, nonatomic) IBOutlet UIButton *buttonSearch;
 
 - (IBAction)btnSearch:(id)sender;

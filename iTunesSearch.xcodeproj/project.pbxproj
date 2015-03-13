@@ -20,6 +20,8 @@
 		D515C15C1AB0842600309310 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = D515C15B1AB0842600309310 /* Music.m */; };
 		D515C15F1AB0843700309310 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D515C15E1AB0843700309310 /* Podcast.m */; };
 		D515C1621AB0844800309310 /* Ebook.m in Sources */ = {isa = PBXBuildFile; fileRef = D515C1611AB0844800309310 /* Ebook.m */; };
+		D57E2B201AB0D0D500DE79AE /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57E2B1E1AB0D0D500DE79AE /* DetailsViewController.m */; };
+		D57E2B211AB0D0D500DE79AE /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D57E2B1F1AB0D0D500DE79AE /* DetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		D515C15E1AB0843700309310 /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
 		D515C1601AB0844800309310 /* Ebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ebook.h; sourceTree = "<group>"; };
 		D515C1611AB0844800309310 /* Ebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ebook.m; sourceTree = "<group>"; };
+		D57E2B1D1AB0D0D500DE79AE /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		D57E2B1E1AB0D0D500DE79AE /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		D57E2B1F1AB0D0D500DE79AE /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,7 @@
 			children = (
 				92C21CE31AAE76AA0052ABE6 /* Celulas */,
 				92C21CE91AAE859A0052ABE6 /* Entidades */,
+				D57E2B221AB0D0E000DE79AE /* Details */,
 				92C21CB71AAE757A0052ABE6 /* AppDelegate.h */,
 				92C21CB81AAE757A0052ABE6 /* AppDelegate.m */,
 				92C21CBA1AAE757A0052ABE6 /* TableViewController.h */,
@@ -163,6 +169,16 @@
 				92C21CE71AAE858E0052ABE6 /* Filme.m */,
 			);
 			name = Entidades;
+			sourceTree = "<group>";
+		};
+		D57E2B221AB0D0E000DE79AE /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				D57E2B1D1AB0D0D500DE79AE /* DetailsViewController.h */,
+				D57E2B1E1AB0D0D500DE79AE /* DetailsViewController.m */,
+				D57E2B1F1AB0D0D500DE79AE /* DetailsViewController.xib */,
+			);
+			name = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +264,7 @@
 				92C21CC11AAE757A0052ABE6 /* Images.xcassets in Resources */,
 				92C21CE21AAE76930052ABE6 /* TableViewCell.xib in Resources */,
 				92C21CDD1AAE75DC0052ABE6 /* TableView.xib in Resources */,
+				D57E2B211AB0D0D500DE79AE /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D515C1621AB0844800309310 /* Ebook.m in Sources */,
+				D57E2B201AB0D0D500DE79AE /* DetailsViewController.m in Sources */,
 				D515C15C1AB0842600309310 /* Music.m in Sources */,
 				92C21CBC1AAE757A0052ABE6 /* TableViewController.m in Sources */,
 				D515C15F1AB0843700309310 /* Podcast.m in Sources */,
@@ -382,6 +400,7 @@
 				INFOPLIST_FILE = iTunesSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -393,6 +412,7 @@
 				INFOPLIST_FILE = iTunesSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

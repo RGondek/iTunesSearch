@@ -11,9 +11,9 @@
 @interface TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nome;
-@property (weak, nonatomic) IBOutlet UILabel *tipo;
+@property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *genre;
-@property (weak, nonatomic) IBOutlet UILabel *duration;
-
+@property (weak, nonatomic) IBOutlet UILabel *artista;
+@property (strong, nonatomic) IBOutlet UIImageView *img;
 
 @end

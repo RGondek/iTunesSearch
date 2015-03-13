@@ -11,6 +11,8 @@
 @interface Music : NSObject
 
 @property (nonatomic, strong) NSString *nome;
+@property (nonatomic, strong) NSString *preview;
+@property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSString *trackId;
 @property (nonatomic, strong) NSString *artista;
 @property (nonatomic, strong) NSString *duracao;

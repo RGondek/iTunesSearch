@@ -11,6 +11,8 @@
 @interface Ebook : NSObject
 
 @property (nonatomic, strong) NSString *nome;
+@property (nonatomic, strong) NSString *img;
+@property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSString *trackId;
 @property (nonatomic, strong) NSString *artista;
 

@@ -18,4 +18,6 @@
 
 - (NSArray *)buscarMidias:(NSString *)termo;
 
+@property NSArray *midias;
+
 @end
